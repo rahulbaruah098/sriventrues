@@ -1,0 +1,10 @@
+Flask>=3.1.2,<3.2
+pymongo>=4.11,<5
+python-dotenv>=1.1,<2
+nh3>=0.3.2,<0.4
+Pillow>=12.1,<13
+defusedxml>=0.7.1,<0.8
+email-validator>=2.2,<3
+gunicorn>=23,<27; sys_platform != "win32"
+waitress>=3.0.2,<4
+itsdangerous>=2.2,<3

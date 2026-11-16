@@ -1,0 +1,84 @@
+{
+  "approach": {
+    "heading": "Our approach",
+    "intro": "We work with customers, partners and institutions to understand their needs, identify opportunities, develop appropriate solutions and build sustainable business relationships.",
+    "stages": [
+      {
+        "name": "Understand",
+        "description": "Identify business requirements, challenges, opportunities and stakeholder expectations.",
+        "enabled": true,
+        "image": "",
+        "alt": ""
+      },
+      {
+        "name": "Strategise",
+        "description": "Develop practical strategies, business models and implementation plans.",
+        "enabled": true,
+        "image": "",
+        "alt": ""
+      },
+      {
+        "name": "Connect",
+        "description": "Build relationships, partnerships and market connections.",
+        "enabled": true,
+        "image": "",
+        "alt": ""
+      },
+      {
+        "name": "Implement",
+        "description": "Support execution, systems development and capability building.",
+        "enabled": true,
+        "image": "",
+        "alt": ""
+      },
+      {
+        "name": "Grow",
+        "description": "Strengthen performance, sustainability and long-term organisational capabilities.",
+        "enabled": true,
+        "image": "",
+        "alt": ""
+      }
+    ]
+  },
+  "founder": {
+    "heading": "Know the Founder",
+    "intro": "SRI is a founder-led organisation guided by the philosophy of Sustainable Rural Innovations.",
+    "name": "",
+    "role": "",
+    "portrait": "",
+    "alt": "",
+    "bio": "",
+    "milestones": []
+  },
+  "founderDraft": "A veterinary professional and rural enterprise development specialist with experience spanning livestock-based businesses, agribusiness development, farmer producer institutions, business strategy and organisational management. His professional interests include building sustainable rural enterprises, strengthening farmer-owned institutions and promoting entrepreneurship through innovation and professional management.",
+  "concepts": [
+    {
+      "title": "Beyond Building Businesses: Building Institutions for a Sustainable and Self-Reliant India",
+      "category": "Leadership & Sustainable Development"
+    },
+    {
+      "title": "The Future of Livestock Entrepreneurship in Northeast India",
+      "category": "Agriculture & Livestock"
+    },
+    {
+      "title": "Building Sustainable Farmer Producer Companies",
+      "category": "Rural Institution Development"
+    },
+    {
+      "title": "Women-Led Rural Enterprises: From Collectives to Businesses",
+      "category": "Entrepreneurship & Business Strategy"
+    },
+    {
+      "title": "Technology and Innovation in Livestock Farming",
+      "category": "Innovation & Technology"
+    },
+    {
+      "title": "Professional Management for Sustainable Rural Institutions",
+      "category": "Rural Institution Development"
+    },
+    {
+      "title": "Creating Market Linkages for Farm and Handloom Products",
+      "category": "Entrepreneurship & Business Strategy"
+    }
+  ]
+}

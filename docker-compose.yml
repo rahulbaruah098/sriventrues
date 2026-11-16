@@ -1,0 +1,45 @@
+services:
+  mongo:
+    image: mongo:7.0
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: sri_root
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:?Set a root password in the root .env}
+      MONGO_INITDB_DATABASE: sri_website
+      MONGO_APP_PASSWORD: ${MONGO_APP_PASSWORD:?Set an app password in the root .env}
+    volumes:
+      - mongo_data:/data/db
+      - ./deploy/mongo-init.js:/docker-entrypoint-initdb.d/01-sri.js:ro
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "quit(db.adminCommand('ping').ok ? 0 : 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  web:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file: ./backend/.env
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:-http://localhost:8000}
+      CORS_ORIGINS: ${PUBLIC_ORIGIN:-http://localhost:8000}
+      TRUST_PROXY: ${TRUST_PROXY:-0}
+      MONGODB_DB: sri_website
+      MONGODB_URI: mongodb://sri_app:${MONGO_APP_PASSWORD}@mongo:27017/sri_website?authSource=sri_website
+      MEDIA_DIR: /app/media
+      DIST_DIR: /app/frontend/dist
+    volumes:
+      - media_data:/app/media
+    healthcheck:
+      test: ["CMD","python","-c","import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=4).read()"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+volumes:
+  mongo_data:
+  media_data:

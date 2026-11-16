@@ -1,0 +1,8 @@
+# Set SRI_DOMAIN to the verified public hostname in Caddy's environment.
+{$SRI_DOMAIN} {
+    encode zstd gzip
+    request_body {
+        max_size 9MB
+    }
+    reverse_proxy 127.0.0.1:8000
+}

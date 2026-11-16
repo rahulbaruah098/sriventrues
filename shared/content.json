@@ -1,0 +1,865 @@
+{
+  "settings": {
+    "name": "SRI Ventures & Consulting Pvt. Ltd.",
+    "tagline": "Driving Sustainable Rural Innovations",
+    "address": "",
+    "email": "",
+    "phone": "",
+    "whatsapp": "",
+    "hours": "",
+    "socials": [],
+    "logo": "",
+    "logo_width": 160,
+    "seo_title": "SRI Ventures & Consulting Pvt. Ltd. | Ventures & Consulting",
+    "seo_description": "Explore SRI Ventures for farm inputs, agricultural produce and handloom products, and SRI Consulting for business strategy, agribusiness and institutional development.",
+    "privacy": "",
+    "terms": "",
+    "profile_file": ""
+  },
+  "ventures": [
+    {
+      "slug": "farm-inputs",
+      "title": "Farm Inputs",
+      "headline": "Quality inputs for productive farming.",
+      "description": "Our farm input business connects farmers and agricultural enterprises with the products they need for day-to-day farm management.",
+      "image": "dairy",
+      "items": [
+        "Animal feed for poultry, pigs, cattle and fish",
+        "Feed additives",
+        "Supplements",
+        "Veterinary medicines",
+        "Livestock and poultry vaccines",
+        "Disinfectants",
+        "Farm hygiene products"
+      ]
+    },
+    {
+      "slug": "farm-outputs",
+      "title": "Farm Outputs",
+      "headline": "Bringing farm produce closer to markets.",
+      "description": "SRI Ventures connects agricultural producers with consumers and institutional markets through sourcing, promotion, marketing and distribution.",
+      "image": "majuli",
+      "items": [
+        "Agricultural produce",
+        "Rice and specialty grains",
+        "Spices and traditional products",
+        "Processed agricultural products",
+        "Locally sourced farm products"
+      ]
+    },
+    {
+      "slug": "handloom",
+      "title": "Handloom Products",
+      "headline": "Celebrating tradition. Connecting handloom to markets.",
+      "description": "India’s handloom heritage carries generations of skill and knowledge. We connect weavers, producer groups and textile businesses with consumer and institutional markets.",
+      "image": "weaving",
+      "items": [
+        "Traditional Assamese handloom",
+        "Handwoven garments and textiles",
+        "Shawls and scarves",
+        "Traditional fabrics and accessories",
+        "Regionally sourced handloom products"
+      ]
+    }
+  ],
+  "consulting": [
+    {
+      "slug": "business-strategy",
+      "title": "Business Strategy & Management",
+      "headline": "Turning business challenges into growth opportunities.",
+      "description": "We work with entrepreneurs and management teams to assess markets, shape business models and translate a growth strategy into practical operating decisions.",
+      "items": [
+        "Business model development and growth planning",
+        "Market research and feasibility studies",
+        "Business plans and Detailed Project Reports",
+        "Financial and operational planning",
+        "Organisational restructuring and performance management",
+        "Management systems and SOP development"
+      ],
+      "image": "planting"
+    },
+    {
+      "slug": "livestock-agribusiness",
+      "title": "Livestock & Agribusiness",
+      "headline": "Building sustainable agricultural and livestock enterprises.",
+      "description": "We help agricultural and livestock enterprises develop viable business models, understand their value chains and build market linkages.",
+      "items": [
+        "Poultry, piggery and goatery enterprise development",
+        "Dairy business development",
+        "Fisheries and aquaculture",
+        "Animal nutrition and feed business",
+        "Livestock value chains and integrated agribusiness models",
+        "Market linkage and business development"
+      ],
+      "image": "dairy"
+    },
+    {
+      "slug": "fpo-development",
+      "title": "FPO/FPC & Institutional Development",
+      "headline": "From producer collectives to sustainable business institutions.",
+      "description": "Farmer Producer Organisations, Farmer Producer Companies and federations need systems that serve their members. Our advisory brings governance, business planning and professional management together.",
+      "items": [
+        "FPO/FPC business planning",
+        "Governance and compliance support",
+        "Institutional assessment and federation development",
+        "Business development and market linkages",
+        "Financial management systems",
+        "Leadership development, member engagement and ownership"
+      ],
+      "image": "seedlings"
+    },
+    {
+      "slug": "business-planning",
+      "title": "Business Planning & Project Consultancy",
+      "headline": "Turning ideas into bankable and implementable projects.",
+      "description": "We help organisations assess whether a project is viable, what it will require and how implementation can be monitored.",
+      "items": [
+        "Feasibility studies and Detailed Project Reports",
+        "Project cost and investment assessment",
+        "Business plans and financial projections",
+        "Market assessments",
+        "Implementation planning",
+        "Monitoring frameworks"
+      ],
+      "image": "majuli"
+    },
+    {
+      "slug": "management-systems",
+      "title": "Operations & Management Systems",
+      "headline": "Building organisations that perform.",
+      "description": "We work with management teams on the operating systems, controls and review routines that support accountable decisions.",
+      "items": [
+        "Standard Operating Procedures (SOPs)",
+        "Management Information Systems (MIS)",
+        "Enterprise Resource Planning (ERP) advisory",
+        "HR and organisational systems",
+        "Financial and operational controls",
+        "Quality management, performance monitoring and reporting"
+      ],
+      "image": "weaving"
+    },
+    {
+      "slug": "technology",
+      "title": "Technology & Digital Solutions",
+      "headline": "Enabling better decisions through technology.",
+      "description": "Technology choices start with the work an organisation needs to do. We assess processes, information needs and the practical requirements for adoption.",
+      "items": [
+        "Digital transformation advisory",
+        "MIS and ERP planning",
+        "Business process digitisation",
+        "Data-driven management",
+        "Digital business platforms",
+        "Technology assessment and adoption"
+      ],
+      "image": "harvest"
+    },
+    {
+      "slug": "capacity-building",
+      "title": "Capacity Building & Training",
+      "headline": "Developing people. Strengthening organisations.",
+      "description": "Training brings enterprise, management and technical skills into the everyday work of entrepreneurs, producer groups and institutions.",
+      "items": [
+        "Entrepreneurship and business development",
+        "Poultry and livestock management",
+        "Financial and operations management",
+        "Leadership, governance and institutional ownership",
+        "Marketing and sales",
+        "Digital and management systems"
+      ],
+      "image": "planting"
+    }
+  ],
+  "industries": [
+    {
+      "slug": "agriculture-agribusiness",
+      "title": "Agriculture & Agribusiness",
+      "description": "From farm inputs to market linkages, explore commercial and advisory pathways for agricultural enterprises.",
+      "image": "majuli",
+      "venture": "farm-outputs",
+      "service": "livestock-agribusiness"
+    },
+    {
+      "slug": "poultry",
+      "title": "Poultry",
+      "description": "Explore feed and farm inputs, poultry enterprise development, and the business planning that connects production with markets.",
+      "image": "hen",
+      "venture": "farm-inputs",
+      "service": "livestock-agribusiness"
+    },
+    {
+      "slug": "dairy",
+      "title": "Dairy",
+      "description": "Find farm-input enquiries and professional advisory for dairy business models, animal nutrition and operational planning.",
+      "image": "dairy",
+      "venture": "farm-inputs",
+      "service": "livestock-agribusiness"
+    },
+    {
+      "slug": "piggery",
+      "title": "Piggery",
+      "description": "Discuss piggery enterprise models, feed requirements and the commercial planning behind a livestock business.",
+      "image": "pigs",
+      "venture": "farm-inputs",
+      "service": "business-planning"
+    },
+    {
+      "slug": "goatery",
+      "title": "Goatery",
+      "description": "Explore goatery enterprise development, livestock value chains and the training needs of producers.",
+      "image": "goats",
+      "venture": "farm-inputs",
+      "service": "capacity-building"
+    },
+    {
+      "slug": "fisheries-aquaculture",
+      "title": "Fisheries & Aquaculture",
+      "description": "Connect fish feed requirements with fisheries business planning, aquaculture value chains and market development.",
+      "image": "fishing",
+      "venture": "farm-inputs",
+      "service": "livestock-agribusiness"
+    },
+    {
+      "slug": "food-processing",
+      "title": "Food Processing & Value Addition",
+      "description": "Discuss sourcing of processed agricultural products, investment planning and market assessment for value-added produce.",
+      "image": "harvest",
+      "venture": "farm-outputs",
+      "service": "business-planning"
+    },
+    {
+      "slug": "handloom-textiles",
+      "title": "Handloom & Textiles",
+      "description": "Connect traditional Assamese textiles and regional weaving groups with buyers, sourcing partners and business advisory.",
+      "image": "weaving",
+      "venture": "handloom",
+      "service": "business-strategy"
+    },
+    {
+      "slug": "rural-enterprises",
+      "title": "Rural Enterprises",
+      "description": "Explore commercial opportunities and management support for entrepreneurs developing rural businesses.",
+      "image": "producer",
+      "venture": "farm-outputs",
+      "service": "business-strategy"
+    },
+    {
+      "slug": "producer-institutions",
+      "title": "Producer Institutions",
+      "description": "Access institutional strengthening, governance and business planning for farmer-owned organisations and federations.",
+      "image": "seedlings",
+      "venture": "farm-outputs",
+      "service": "fpo-development"
+    }
+  ],
+  "pages": {
+    "/": {
+      "title": "Connecting resources, businesses and opportunities.",
+      "description": "From quality farm inputs and market-ready products to strategic consulting and enterprise development, we connect businesses, farmers and institutions to sustainable opportunities."
+    },
+    "/about/": {
+      "title": "About SRI",
+      "description": "SRI Ventures & Consulting Pvt. Ltd. is an enterprise-focused organisation working across commercial business operations and professional consulting services."
+    },
+    "/know-the-founder/": {
+      "title": "Know the Founder",
+      "description": "SRI is a founder-led organisation guided by the philosophy of Sustainable Rural Innovations."
+    },
+    "/ventures/": {
+      "title": "SRI Ventures",
+      "description": "SRI Ventures connects farmers, producers, retailers, distributors and institutional buyers through farm inputs, farm produce and handloom products."
+    },
+    "/consulting/": {
+      "title": "SRI Consulting",
+      "description": "SRI Consulting provides strategic advisory, enterprise development and institutional strengthening to businesses, entrepreneurs, producer organisations, federations and development organisations."
+    },
+    "/industries/": {
+      "title": "Industries we serve",
+      "description": "Our commercial and advisory work spans agriculture, livestock, handloom and the institutions that connect producers to markets."
+    },
+    "/our-approach/": {
+      "title": "Our approach",
+      "description": "We work with customers, partners and institutions to understand their needs, identify opportunities, develop appropriate solutions and build sustainable business relationships."
+    },
+    "/our-work/": {
+      "title": "Our work",
+      "description": "Explore approved accounts of SRI’s role, the work undertaken and the outcomes of each assignment."
+    },
+    "/insights/": {
+      "title": "Insights & perspectives",
+      "description": "Articles on enterprise development, agriculture, rural institutions and the people building them."
+    },
+    "/ventures/products/": {
+      "title": "Product catalogue",
+      "description": "Browse farm inputs, agricultural produce and handloom products. Contact SRI Ventures for availability, specifications or a quotation."
+    },
+    "/partnerships/": {
+      "title": "Partnerships",
+      "description": "SRI welcomes collaboration with producers, manufacturers, buyers, institutions, development organisations and technology partners."
+    },
+    "/ventures/partnerships/": {
+      "title": "Grow with SRI Ventures",
+      "description": "Explore product distribution, retail partnerships, institutional procurement, farm produce sourcing, handloom sourcing and B2B supply arrangements."
+    },
+    "/consulting/engagement-models/": {
+      "title": "Engagement models",
+      "description": "Choose a defined project with milestones and deliverables or ongoing strategic and management support through a retainer."
+    },
+    "/contact/": {
+      "title": "Contact us",
+      "description": "Choose the enquiry that fits your requirement to reach SRI Ventures, SRI Consulting or the partnerships team."
+    },
+    "/privacy/": {
+      "title": "Privacy notice",
+      "description": "How this website handles the details you provide when you make an enquiry."
+    },
+    "/terms/": {
+      "title": "Terms of use",
+      "description": "Information about this website, its catalogue and enquiry-based services."
+    },
+    "/credits/": {
+      "title": "Photography & credits",
+      "description": "Regional photographs used across the website, with source and licence details."
+    },
+    "/ventures/farm-inputs/": {
+      "title": "Farm Inputs",
+      "description": "Our farm input business connects farmers and agricultural enterprises with the products they need for day-to-day farm management."
+    },
+    "/ventures/farm-outputs/": {
+      "title": "Farm Outputs",
+      "description": "SRI Ventures connects agricultural producers with consumers and institutional markets through sourcing, promotion, marketing and distribution."
+    },
+    "/ventures/handloom/": {
+      "title": "Handloom Products",
+      "description": "India’s handloom heritage carries generations of skill and knowledge. We connect weavers, producer groups and textile businesses with consumer and institutional markets."
+    },
+    "/consulting/business-strategy/": {
+      "title": "Business Strategy & Management",
+      "description": "We work with entrepreneurs and management teams to assess markets, shape business models and translate a growth strategy into practical operating decisions."
+    },
+    "/consulting/livestock-agribusiness/": {
+      "title": "Livestock & Agribusiness",
+      "description": "We help agricultural and livestock enterprises develop viable business models, understand their value chains and build market linkages."
+    },
+    "/consulting/fpo-development/": {
+      "title": "FPO/FPC & Institutional Development",
+      "description": "Farmer Producer Organisations, Farmer Producer Companies and federations need systems that serve their members. Our advisory brings governance, business planning and professional management together."
+    },
+    "/consulting/business-planning/": {
+      "title": "Business Planning & Project Consultancy",
+      "description": "We help organisations assess whether a project is viable, what it will require and how implementation can be monitored."
+    },
+    "/consulting/management-systems/": {
+      "title": "Operations & Management Systems",
+      "description": "We work with management teams on the operating systems, controls and review routines that support accountable decisions."
+    },
+    "/consulting/technology/": {
+      "title": "Technology & Digital Solutions",
+      "description": "Technology choices start with the work an organisation needs to do. We assess processes, information needs and the practical requirements for adoption."
+    },
+    "/consulting/capacity-building/": {
+      "title": "Capacity Building & Training",
+      "description": "Training brings enterprise, management and technical skills into the everyday work of entrepreneurs, producer groups and institutions."
+    },
+    "/industries/agriculture-agribusiness/": {
+      "title": "Agriculture & Agribusiness",
+      "description": "From farm inputs to market linkages, explore commercial and advisory pathways for agricultural enterprises."
+    },
+    "/industries/poultry/": {
+      "title": "Poultry",
+      "description": "Explore feed and farm inputs, poultry enterprise development, and the business planning that connects production with markets."
+    },
+    "/industries/dairy/": {
+      "title": "Dairy",
+      "description": "Find farm-input enquiries and professional advisory for dairy business models, animal nutrition and operational planning."
+    },
+    "/industries/piggery/": {
+      "title": "Piggery",
+      "description": "Discuss piggery enterprise models, feed requirements and the commercial planning behind a livestock business."
+    },
+    "/industries/goatery/": {
+      "title": "Goatery",
+      "description": "Explore goatery enterprise development, livestock value chains and the training needs of producers."
+    },
+    "/industries/fisheries-aquaculture/": {
+      "title": "Fisheries & Aquaculture",
+      "description": "Connect fish feed requirements with fisheries business planning, aquaculture value chains and market development."
+    },
+    "/industries/food-processing/": {
+      "title": "Food Processing & Value Addition",
+      "description": "Discuss sourcing of processed agricultural products, investment planning and market assessment for value-added produce."
+    },
+    "/industries/handloom-textiles/": {
+      "title": "Handloom & Textiles",
+      "description": "Connect traditional Assamese textiles and regional weaving groups with buyers, sourcing partners and business advisory."
+    },
+    "/industries/rural-enterprises/": {
+      "title": "Rural Enterprises",
+      "description": "Explore commercial opportunities and management support for entrepreneurs developing rural businesses."
+    },
+    "/industries/producer-institutions/": {
+      "title": "Producer Institutions",
+      "description": "Access institutional strengthening, governance and business planning for farmer-owned organisations and federations."
+    },
+    "/newsletter/": {
+      "title": "Newsletter preferences",
+      "description": "Manage a subscription to SRI Insights."
+    }
+  },
+  "photos": [
+    {
+      "key": "planting",
+      "file": "Paddy cultivation in Nagaon.jpg",
+      "alt": "Farmers transplant rice seedlings in Pahukata, Nagaon.",
+      "location": "Nagaon, Assam",
+      "author": "Diganta Talukdar",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Paddy_cultivation_in_Nagaon.jpg"
+    },
+    {
+      "key": "majuli",
+      "file": "A paddy field in Majuli, Assam.jpg",
+      "alt": "Mature rice stalks in a paddy field in Majuli.",
+      "location": "Majuli, Assam",
+      "author": "Joli Rumi",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:A_paddy_field_in_Majuli%2C_Assam.jpg"
+    },
+    {
+      "key": "weaving",
+      "file": "Traditional weaving in Assam.jpg",
+      "alt": "A weaver works at a wooden handloom in Lakhimpur.",
+      "location": "Lakhimpur, Assam",
+      "author": "Joli",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Traditional_weaving_in_Assam.jpg"
+    },
+    {
+      "key": "seedlings",
+      "file": "Women planting seedlings at a paddy field of Assam.jpg",
+      "alt": "Three women planting rice seedlings in Assam.",
+      "location": "Assam, India",
+      "author": "ঈশান জ্যোতি বৰা",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Women_planting_seedlings_at_a_paddy_field_of_Assam.jpg"
+    },
+    {
+      "key": "harvest",
+      "file": "Paddy field during harvest season.jpg",
+      "alt": "A harvested paddy field under the blue sky.",
+      "location": "Assam, India",
+      "author": "DOLI HALOI",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Paddy_field_during_harvest_season.jpg"
+    },
+    {
+      "key": "producer",
+      "file": "Woman carrying harvested crop Assam.jpg",
+      "alt": "A woman carries harvested rice in Assam.",
+      "location": "Assam, India",
+      "author": "ঈশান জ্যোতি বৰা",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Woman_carrying_harvested_crop_Assam.jpg",
+      "widths": [
+        640,
+        1200
+      ]
+    },
+    {
+      "key": "dairy",
+      "file": "'A' cow and mustard farms, Assam India, 2013.jpg",
+      "alt": "A cow grazes beside flowering mustard fields near Pobitora.",
+      "location": "Pobitora, Assam",
+      "author": "Travelling Slacker",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:'A'_cow_and_mustard_farms%2C_Assam_India%2C_2013.jpg",
+      "widths": [
+        640,
+        1200
+      ]
+    },
+    {
+      "key": "hen",
+      "file": "Hen with chickens at Kodungallur, Thrissur District, Kerala.jpg",
+      "alt": "A hen with chicks in Kodungallur.",
+      "location": "Thrissur, Kerala",
+      "author": "Unnikuttan K R",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Hen_with_chickens_at_Kodungallur%2C_Thrissur_District%2C_Kerala.jpg",
+      "widths": [
+        640,
+        1200,
+        1920
+      ]
+    },
+    {
+      "key": "pigs",
+      "file": "Feeding pigs in Nagaland.jpg",
+      "alt": "A woman feeding her pigs in Nagaland.",
+      "location": "Nagaland, India",
+      "author": "ILRI",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Feeding_pigs_in_Nagaland.jpg",
+      "widths": [
+        640,
+        1000
+      ]
+    },
+    {
+      "key": "goats",
+      "file": "A goat shed in a village of Assam.jpg",
+      "alt": "A rural goat shed in Jorhat, Assam.",
+      "location": "Jorhat, Assam",
+      "author": "Gitartha.bordoloi",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:A_goat_shed_in_a_village_of_Assam.jpg",
+      "widths": [
+        640,
+        1200,
+        1920
+      ]
+    },
+    {
+      "key": "fishing",
+      "file": "Fishing through net.jpg",
+      "alt": "A fisher working with a traditional tongi net in Assam.",
+      "location": "Assam, India",
+      "author": "KAUSIKA BORDOLOI",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Fishing_through_net.jpg",
+      "widths": [
+        640,
+        1200,
+        1920
+      ]
+    }
+  ],
+  "why": [
+    [
+      "Integrated Business Understanding",
+      "We understand both the product and service dimensions of rural enterprises."
+    ],
+    [
+      "Industry Knowledge",
+      "Our focus spans agriculture, livestock, agribusiness and institutional development."
+    ],
+    [
+      "Business Orientation",
+      "We focus on market opportunities, commercial viability and sustainable business models."
+    ],
+    [
+      "Professional Management",
+      "Effective systems, organisational capability and accountable management guide our work."
+    ],
+    [
+      "Sustainable Value Creation",
+      "Business growth and positive economic and social outcomes can reinforce one another."
+    ]
+  ],
+  "values": [
+    [
+      "Innovation",
+      "Embracing new ideas and practical solutions."
+    ],
+    [
+      "Integrity",
+      "Conducting business with transparency and accountability."
+    ],
+    [
+      "Excellence",
+      "Maintaining professional standards and quality."
+    ],
+    [
+      "Sustainability",
+      "Building long-term economic and social value."
+    ],
+    [
+      "Inclusiveness",
+      "Creating opportunities for businesses, farmers and communities."
+    ],
+    [
+      "Ownership",
+      "Taking responsibility for outcomes and commitments."
+    ]
+  ],
+  "forms": {
+    "general": [
+      {
+        "key": "name",
+        "label": "Full name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "subject",
+        "label": "Subject",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "message",
+        "label": "Message",
+        "type": "textarea",
+        "required": true
+      }
+    ],
+    "ventures": [
+      {
+        "key": "name",
+        "label": "Full name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "organisation",
+        "label": "Organisation",
+        "type": "text",
+        "required": false
+      },
+      {
+        "key": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "buyer",
+        "label": "Buyer type",
+        "type": "select",
+        "required": true,
+        "options": [
+          "B2B",
+          "B2C"
+        ]
+      },
+      {
+        "key": "intent",
+        "label": "Reason for enquiry",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Product enquiry",
+          "Bulk enquiry",
+          "Request a quote"
+        ]
+      },
+      {
+        "key": "category",
+        "label": "Product category",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Farm Inputs",
+          "Farm Outputs",
+          "Handloom Products"
+        ]
+      },
+      {
+        "key": "product",
+        "label": "Product of interest",
+        "type": "text",
+        "required": false
+      },
+      {
+        "key": "quantity",
+        "label": "Quantity or product requirement",
+        "type": "textarea",
+        "required": true
+      },
+      {
+        "key": "location",
+        "label": "Location",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "message",
+        "label": "Message",
+        "type": "textarea",
+        "required": false
+      }
+    ],
+    "consulting": [
+      {
+        "key": "name",
+        "label": "Full name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "organisation",
+        "label": "Organisation",
+        "type": "text",
+        "required": false
+      },
+      {
+        "key": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "service",
+        "label": "Consulting requirement",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Business Strategy & Management",
+          "Livestock & Agribusiness",
+          "FPO/FPC & Institutional Development",
+          "Business Planning & Project Consultancy",
+          "Operations & Management Systems",
+          "Technology & Digital Solutions",
+          "Capacity Building & Training",
+          "Consulting appointment",
+          "Other consulting requirement"
+        ]
+      },
+      {
+        "key": "engagement",
+        "label": "Engagement model",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Project-based",
+          "Retainer-based"
+        ]
+      },
+      {
+        "key": "scope",
+        "label": "Scope of work",
+        "type": "textarea",
+        "required": true
+      },
+      {
+        "key": "timeline",
+        "label": "Expected timeline",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "location",
+        "label": "Location",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "message",
+        "label": "Message",
+        "type": "textarea",
+        "required": false
+      }
+    ],
+    "partnerships": [
+      {
+        "key": "name",
+        "label": "Full name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "organisation",
+        "label": "Organisation",
+        "type": "text",
+        "required": false
+      },
+      {
+        "key": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      },
+      {
+        "key": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "required": true
+      },
+      {
+        "key": "partnership",
+        "label": "Partnership type",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Manufacturer",
+          "Supplier",
+          "Dealer",
+          "Distributor",
+          "Farmer / producer",
+          "Farm produce supplier / aggregator",
+          "Handloom weaver / producer group",
+          "Institutional buyer",
+          "Consulting partner",
+          "Technology / innovation partner",
+          "Professional collaboration"
+        ]
+      },
+      {
+        "key": "location",
+        "label": "Location",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "message",
+        "label": "Describe the partnership",
+        "type": "textarea",
+        "required": true
+      }
+    ]
+  },
+  "partnerTypes": [
+    "Manufacturer",
+    "Supplier",
+    "Dealer",
+    "Distributor",
+    "Farmer / producer",
+    "Farm produce supplier / aggregator",
+    "Handloom weaver / producer group",
+    "Institutional buyer",
+    "Consulting partner",
+    "Technology / innovation partner",
+    "Professional collaboration"
+  ],
+  "articleCategories": [
+    "Entrepreneurship & Business Strategy",
+    "Agriculture & Livestock",
+    "Rural Institution Development",
+    "Innovation & Technology",
+    "Leadership & Sustainable Development"
+  ]
+}
