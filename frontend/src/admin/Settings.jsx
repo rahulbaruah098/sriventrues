@@ -19,7 +19,7 @@ function SettingsForm({ initial, branding }) {
     state = useSave();
   const publicSettings = useSettings();
   const fields = branding
-    ? ["logo", "logo_width"]
+    ? ["logo", "logo_width", "hero_image", "hero_image_alt"]
     : [
         "name",
         "tagline",
@@ -54,7 +54,7 @@ function SettingsForm({ initial, branding }) {
         title={branding ? "Company branding" : "Website settings"}
         description={
           branding
-            ? "One official logo is used throughout the public website."
+            ? "Manage the official logo and the homepage hero photograph. Leave the hero empty for the approved default artwork."
             : "Publish verified company, contact and website information."
         }
       />
@@ -66,6 +66,18 @@ function SettingsForm({ initial, branding }) {
                 label="Official company logo"
                 purpose="logo"
                 {...values("logo")}
+              />
+              <Upload
+                label="Homepage hero photograph (optional)"
+                purpose="hero"
+                {...values("hero_image")}
+              />
+              <Field
+                label="Hero image description (for accessibility)"
+                help="Describe the photo for screen readers. Required when using a custom hero image."
+                maxLength={350}
+                required={Boolean(doc.hero_image)}
+                {...values("hero_image_alt")}
               />
               <Field
                 label="Maximum logo width (px)"

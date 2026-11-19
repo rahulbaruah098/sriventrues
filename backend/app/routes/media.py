@@ -146,12 +146,25 @@ def upload():
 
 
 def used(url, *, published_only=True):
-    queries = [("site_settings", {"$or": [{"logo": url}, {"profile_file": url}]})]
+    queries = [("site_settings", {"$or": [{"logo": url}, {"profile_file": url}, {"hero_image": url}]})]
     for kind, path in [("founder", "portrait"), ("approach", "stages.image")]:
         fields = ["published"] if published_only else ["draft", "published"]
         queries.append((kind, {"$or": [{f"{f}.{path}": url} for f in fields]}))
     for coll in ("articles", "case_studies", "products"):
         query = {"$or": [{"cover": url}, {"gallery.url": url}, {"inline_media": url}]}
+        if published_only:
+            query["status"] = "published"
+        queries.append((coll, query))
+    # V18: Published directory portraits and blog covers must also be
+    # accessible to visitors. Draft media remains private to staff.
+    for directory_collection in ("team_members", "consultants", "blog_posts"):
+        query = {"image": url}
+        if published_only:
+            query["status"] = "published"
+        queries.append((directory_collection, query))
+    # V23: Public media for published homepage relationships.
+    for coll in ("homepage_clients", "homepage_partners", "homepage_testimonials"):
+        query = {"image": url}
         if published_only:
             query["status"] = "published"
         queries.append((coll, query))

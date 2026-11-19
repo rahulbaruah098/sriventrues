@@ -1,0 +1,115 @@
+.sri-directory,.sri-directory-detail{padding-top:clamp(3rem,7vw,7rem);padding-bottom:clamp(4rem,8vw,9rem)}
+.sri-directory-head{max-width:850px;margin-bottom:3rem}.sri-directory-head h1,.sri-directory-detail h1{font-size:clamp(2.5rem,6vw,5.5rem);line-height:1.03;margin:.8rem 0 1.2rem;color:var(--navy,#102b50);text-transform:uppercase}.sri-directory-head p{font-size:clamp(1rem,1.4vw,1.3rem);max-width:65ch}
+.sri-directory-search{max-width:720px;margin-bottom:2.5rem}.sri-directory-search label{display:block;margin-bottom:.5rem;font-weight:700}.sri-directory-search>div{display:flex;align-items:center;gap:.7rem;border:1px solid #b6bdb8;padding:.45rem .5rem .45rem 1rem;background:#fff}.sri-directory-search input{flex:1;min-width:0;border:0;padding:.8rem 0;background:transparent;color:#102b50}.sri-directory-search button,.sri-directory-pager button{background:#102b50;color:#fff;border:0;padding:.8rem 1.3rem;cursor:pointer}
+.sri-directory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2vw,2.3rem)}.sri-directory-card{display:flex;flex-direction:column;overflow:hidden;text-decoration:none;color:inherit;background:#fff;border:1px solid rgba(16,43,80,.12);transition:transform .35s ease,box-shadow .35s ease}.sri-directory-card:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(16,43,80,.13)}.sri-directory-thumb{aspect-ratio:4/3;background:#e6e9e1;display:grid;place-items:center;color:#102b50;font-size:3rem;font-weight:800}.sri-directory-thumb img{width:100%;height:100%;object-fit:cover}.sri-directory-card-body{padding:1.45rem;flex:1;display:flex;flex-direction:column}.sri-directory-card h2{font-size:clamp(1.2rem,1.7vw,1.6rem);margin:.5rem 0;color:#102b50}.sri-directory-card p{line-height:1.6}.sri-directory-kicker{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#087451;font-weight:700}.sri-directory-view{margin-top:auto;padding-top:1.2rem;display:flex;gap:.6rem;align-items:center;color:#087451;font-weight:700}.sri-directory-empty{padding:2rem 0}.sri-directory-pager{display:flex;gap:1rem;align-items:center;justify-content:center;margin:3rem 0}.sri-directory-pager button:disabled{opacity:.4;cursor:not-allowed}
+.sri-directory-back{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:2rem;color:#087451}.sri-directory-detail-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,5vw,5rem);align-items:start}.sri-directory-detail-grid p{line-height:1.7}.sri-directory-role{font-size:1.4rem;font-weight:700}.sri-directory-intro{font-size:1.2rem;max-width:60ch}.sri-directory-detail-image{width:100%;max-height:620px;object-fit:cover}.sri-directory-article{max-width:850px;margin-top:3rem;font-size:1.05rem;line-height:1.8}.sri-directory-article img{max-width:100%;height:auto}.sri-directory-contact{display:inline-flex;align-items:center;gap:.5rem;margin-top:2rem;background:#102b50;color:white;padding:1rem 1.5rem;text-decoration:none}
+@media(max-width:900px){.sri-directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.sri-directory-grid,.sri-directory-detail-grid{grid-template-columns:1fr}.sri-directory-head{margin-bottom:2rem}.sri-directory-search>div{gap:.35rem}.sri-directory-search button{padding:.7rem}.sri-directory-card-body{padding:1.2rem}}
+@media(prefers-reduced-motion:reduce){.sri-directory-card{transition:none}}
+
+/* V18: Compact portrait directories, isolated from Blogs and all other pages. */
+.sri-directory--team .sri-directory-grid,
+.sri-directory--consultants .sri-directory-grid {
+  grid-template-columns: repeat(4, minmax(0, 270px));
+  justify-content: start;
+  gap: clamp(1rem, 1.7vw, 1.5rem);
+}
+.sri-directory--team .sri-directory-card,
+.sri-directory--consultants .sri-directory-card {
+  width: 100%;
+  min-width: 0;
+}
+.sri-directory--team .sri-directory-thumb,
+.sri-directory--consultants .sri-directory-thumb {
+  aspect-ratio: 4 / 5;
+  height: auto;
+  overflow: hidden;
+  font-size: 1rem;
+  background: #e6e9e1;
+}
+.sri-directory--team .sri-directory-thumb img,
+.sri-directory--consultants .sri-directory-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.sri-directory--team .sri-directory-card-body,
+.sri-directory--consultants .sri-directory-card-body {
+  padding: 1.05rem 1.05rem 1.15rem;
+}
+.sri-directory--team .sri-directory-card h2,
+.sri-directory--consultants .sri-directory-card h2 {
+  font-size: clamp(1.08rem, 1.2vw, 1.35rem);
+  line-height: 1.25;
+  margin: .35rem 0 .4rem;
+  overflow-wrap: anywhere;
+}
+.sri-directory--team .sri-directory-card p,
+.sri-directory--consultants .sri-directory-card p {
+  font-size: .9rem;
+  line-height: 1.45;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.sri-directory--team .sri-directory-kicker,
+.sri-directory--consultants .sri-directory-kicker {
+  font-size: .68rem;
+  letter-spacing: .055em;
+}
+.sri-directory--team .sri-directory-view,
+.sri-directory--consultants .sri-directory-view {
+  font-size: .9rem;
+  padding-top: .8rem;
+}
+/* Used for an unloaded, missing or unpublished photograph. */
+.sri-directory-photo-fallback {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  background: #e6e9e1;
+  color: #102b50;
+  text-align: center;
+  padding: 1rem;
+}
+.sri-directory-photo-monogram {font-size: clamp(1.3rem, 3vw, 2rem);font-weight: 750;letter-spacing: .02em}
+.sri-directory-photo-caption {font-size: .75rem;font-weight: 500;line-height: 1.4}
+.sri-directory-detail-image {
+  display: block;
+  max-height: 620px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  background: #e6e9e1;
+}
+.sri-directory-detail-image.sri-directory-photo-fallback {min-height: 280px}
+@media (max-width: 1200px) {
+  .sri-directory--team .sri-directory-grid,
+  .sri-directory--consultants .sri-directory-grid {
+    grid-template-columns: repeat(3, minmax(0, 270px));
+  }
+}
+@media (max-width: 900px) {
+  .sri-directory--team .sri-directory-grid,
+  .sri-directory--consultants .sri-directory-grid {
+    grid-template-columns: repeat(2, minmax(0, 270px));
+  }
+}
+@media (max-width: 560px) {
+  .sri-directory--team .sri-directory-grid,
+  .sri-directory--consultants .sri-directory-grid {
+    grid-template-columns: minmax(0, 290px);
+    justify-content: center;
+  }
+  .sri-directory--team .sri-directory-card-body,
+  .sri-directory--consultants .sri-directory-card-body {padding: 1rem}
+}

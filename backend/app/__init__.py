@@ -14,12 +14,16 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 from .auth import admin_required, auth, new_password
 from .core import KINDS, ROOT, db, email, now, serialize
+from .routes.assistant import assistant
 from .routes.content import content
 from .routes.editorial import editorial
 from .routes.enquiries import enquiries
 from .routes.media import media, used
 from .routes.newsletter import newsletter
+from .routes.careers import careers
 from .routes.site import site
+from .routes.people_blogs import people_blogs
+from .routes.relationships import relationships
 from .seed import initialise
 
 
@@ -37,6 +41,7 @@ def create_app(config=None, database=None):
         NEWSLETTER_KEY=os.getenv("NEWSLETTER_KEY", ""),
         GA4_ID=os.getenv("GA4_ID", "").strip(),
         SEARCH_VERIFICATION=os.getenv("SEARCH_VERIFICATION", "").strip(),
+        TURNSTILE_SECRET_KEY=os.getenv("TURNSTILE_SECRET_KEY", "").strip(),
         MAX_CONTENT_LENGTH=9 * 1024 * 1024,
         MAX_FORM_MEMORY_SIZE=200_000,
         ALLOWED_ORIGINS={
@@ -92,8 +97,9 @@ def create_app(config=None, database=None):
         )
         database = client[os.getenv("MONGODB_DB") or "sri_website"]
     app.extensions["sri_db"] = database
-    for blueprint in (auth, content, editorial, enquiries, newsletter, media, site):
+    for blueprint in (auth, content, editorial, enquiries, newsletter, media, site, assistant, people_blogs, relationships):
         app.register_blueprint(blueprint)
+    app.register_blueprint(careers)
 
     @app.before_request
     def origin_check():
@@ -112,8 +118,8 @@ def create_app(config=None, database=None):
         res.headers.setdefault("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
         res.headers.setdefault(
             "Content-Security-Policy",
-            "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; "
-            "font-src 'self'; img-src 'self' data: blob:; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; "
+            "font-src 'self'; img-src 'self' data: blob:; object-src 'none'; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
         )
         if (
             app.config["GA4_ID"]
@@ -129,7 +135,7 @@ def create_app(config=None, database=None):
                 )
             )
             res.headers["Content-Security-Policy"] += (
-                "; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com"
+                " https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com"
             )
         if production:
             res.headers["Strict-Transport-Security"] = "max-age=31536000"

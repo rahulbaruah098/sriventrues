@@ -16,8 +16,19 @@ import { AdminTitle, Feedback, Field, useSave } from "./controls";
 import { dateLabel } from "../lib/api";
 
 const navigation = [
+  ["Job Postings", "careers/jobs"],
+  ["Applications & Resumes", "careers/applications"],
+  ["Recruitment Emails", "careers/emails"],
+  ["Email Templates", "careers/templates"],
+  ["Careers SMTP", "careers/smtp"],
+  ["Trusted Clients", "clients"],
+  ["Our Partners", "partners"],
+  ["Testimonials", "testimonials"],
   ["Dashboard", ""],
   ["Insights & Articles", "articles"],
+  ["Blogs", "blogs"],
+  ["Know Our Consultants", "consultants"],
+  ["Meet the Team", "team"],
   ["Our Approach", "approach"],
   ["Our Work / Case Studies", "case-studies"],
   ["Product Catalogue", "products"],

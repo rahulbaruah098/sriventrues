@@ -10,6 +10,7 @@ from werkzeug.exceptions import BadRequest, Conflict
 
 from ..auth import admin_required, rate_limit
 from ..mail import deliver
+from ..turnstile import verify_turnstile
 from ..core import (
     CONTENT,
     STATUSES,
@@ -65,6 +66,7 @@ def submit():
     rate_limit("enquiries", 12, 600)
     obj = payload()
     kind = option(obj.get("type"), CONTENT["forms"], "enquiry journey")
+    verify_turnstile(obj.get("turnstile_token"))
     if obj.get("website") or obj.get("consent") is not True:
         raise BadRequest("Check the form and confirm the contact permission.")
     try:

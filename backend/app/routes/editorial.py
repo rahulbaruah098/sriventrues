@@ -114,6 +114,8 @@ def settings():
         **{k: current.get(k, v) for k, v in CONTENT["settings"].items()},
         "newsletter": enabled(),
         "analytics_id": current_app.config["GA4_ID"],
+        "hero_image": current.get("hero_image", ""),
+        "hero_image_alt": current.get("hero_image_alt", ""),
     }
 
 
@@ -151,6 +153,14 @@ def update_settings():
             phone(patch[key])
     if "logo" in data:
         patch["logo"] = media_url(data["logo"])
+    if "hero_image" in data:
+        patch["hero_image"] = media_url(data["hero_image"])
+    if "hero_image_alt" in data:
+        patch["hero_image_alt"] = string(data, "hero_image_alt", 350)
+    effective_hero = patch.get("hero_image", current.get("hero_image", ""))
+    effective_alt = patch.get("hero_image_alt", current.get("hero_image_alt", ""))
+    if effective_hero and not effective_alt:
+        raise BadRequest("Add a description of the homepage hero image.")
     if "logo_width" in data:
         patch["logo_width"] = number(data["logo_width"], "logo width", 84, 240)
     if "socials" in data:

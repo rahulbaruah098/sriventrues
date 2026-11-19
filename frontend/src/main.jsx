@@ -12,6 +12,7 @@ import { BrandingProvider } from "./lib/context";
 import PublicLayout from "./components/layout";
 import { NotFound } from "./components/ui";
 import "./styles/site.css";
+import "./styles/careers.css";
 import "./styles/admin.css";
 
 const pick = (loader, name) =>
@@ -45,6 +46,23 @@ const PageEditor = pick(() => import("./admin/Pages"), "PageEditor"),
   Account = pick(() => import("./admin/Settings"), "Account"),
   Inbox = pick(() => import("./admin/Enquiries"), "Inbox"),
   Enquiry = pick(() => import("./admin/Enquiries"), "EnquiryDetail");
+
+const directoryPublic = () => import('./public/DirectoryPages');
+const DirectoryPage = pick(directoryPublic, 'DirectoryPage'),
+  DirectoryDetail = pick(directoryPublic, 'DirectoryDetail');
+const relationshipsAdmin = () => import('./admin/RelationshipsAdmin');
+const RelationshipsList = pick(relationshipsAdmin, 'RelationshipsList'),
+  RelationshipsEditor = pick(relationshipsAdmin, 'RelationshipsEditor');
+const directoryAdmin = () => import('./admin/DirectoryAdmin');
+const DirectoryAdminList = pick(directoryAdmin, 'DirectoryAdminList'),
+  DirectoryAdminEditor = pick(directoryAdmin, 'DirectoryAdminEditor');
+const careers = () => import('./public/Careers');
+const Careers = pick(careers, 'Careers'), CareerDetail = pick(careers, 'CareerDetail');
+const careersAdmin = () => import('./admin/CareersAdmin');
+const CareerJobs = pick(careersAdmin,'CareerJobs'), CareerJobEditor=pick(careersAdmin,'CareerJobEditor'),
+  CareerApplications=pick(careersAdmin,'CareerApplications'), CareerApplicant=pick(careersAdmin,'CareerApplicant'),
+  CareerSMTP=pick(careersAdmin,'CareerSMTP'), CareerEmailHistory=pick(careersAdmin,'CareerEmailHistory'),
+  CareerTemplates=pick(careersAdmin,'CareerTemplates');
 
 function RouteScroll() {
   const { pathname, hash } = useLocation(),
@@ -94,6 +112,14 @@ function App() {
             <Routes>
               <Route element={<PublicLayout />}>
                 <Route index element={<Home />} />
+                {[
+                  ['meet-the-team', 'team'],
+                  ['know-our-consultants', 'consultants'],
+                  ['blogs', 'blogs']
+                ].map(([path, kind]) => <React.Fragment key={path}>
+                  <Route path={path} element={<DirectoryPage kind={kind} />}/>
+                  <Route path={path + '/:slug'} element={<DirectoryDetail kind={kind} />}/>
+                </React.Fragment>)}
                 <Route path="about" element={<About />} />
                 <Route path="know-the-founder" element={<Founder />} />
                 <Route
@@ -125,6 +151,8 @@ function App() {
                 <Route path="industries" element={<Industries />} />
                 <Route path="industries/:slug" element={<Industry />} />
                 <Route path="our-approach" element={<Approach />} />
+                <Route path="careers" element={<Careers />} />
+                <Route path="careers/:id" element={<CareerDetail />} />
                 <Route path="contact" element={<Contact />} />
                 <Route path="newsletter" element={<Newsletter />} />
                 {Object.entries({
@@ -155,6 +183,14 @@ function App() {
               <Route path="admin/login" element={<Login />} />
               <Route path="admin" element={<AdminLayout />}>
                 <Route index element={<Dashboard />} />
+                {['clients', 'partners', 'testimonials'].map(kind => <React.Fragment key={kind}>
+                  <Route path={kind} element={<RelationshipsList kind={kind} />}/>
+                  <Route path={kind + '/:id'} element={<RelationshipsEditor kind={kind} />}/>
+                </React.Fragment>)}
+                {['team', 'consultants', 'blogs'].map(kind => <React.Fragment key={kind}>
+                  <Route path={kind} element={<DirectoryAdminList kind={kind} />}/>
+                  <Route path={kind + '/:id'} element={<DirectoryAdminEditor kind={kind} />}/>
+                </React.Fragment>)}
                 {["articles", "case-studies", "products"].map((kind) => (
                   <React.Fragment key={kind}>
                     <Route
@@ -174,6 +210,13 @@ function App() {
                     element={<PageEditor key={kind} kind={kind} />}
                   />
                 ))}
+                <Route path="careers/jobs" element={<CareerJobs />} />
+                <Route path="careers/jobs/:id" element={<CareerJobEditor />} />
+                <Route path="careers/applications" element={<CareerApplications />} />
+                <Route path="careers/applications/:id" element={<CareerApplicant />} />
+                <Route path="careers/templates" element={<CareerTemplates />} />
+                <Route path="careers/smtp" element={<CareerSMTP />} />
+                <Route path="careers/emails" element={<CareerEmailHistory />} />
                 <Route path="branding" element={<Settings branding />} />
                 <Route path="settings" element={<Settings />} />
                 <Route path="account" element={<Account />} />

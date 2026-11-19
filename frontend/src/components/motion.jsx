@@ -96,17 +96,39 @@ export function ScrollMotion({ active, root }) {
                   once: true,
                   onEnter: () => {
                     const from = el.hasAttribute("data-mask")
-                      ? { clipPath: "inset(0 0 9% 0)" }
-                      : { y: 17, opacity: 0.72 };
+                      ? { clipPath: "inset(0 0 12% 0)", opacity: 0.75 }
+                      : { y: 24, opacity: 0.35 };
                     if (alive)
                       gsap.fromTo(el, from, {
                         y: 0,
                         opacity: 1,
                         clipPath: "inset(0% 0% 0% 0%)",
-                        duration: 0.68,
+                        duration: 1.25,
                         ease: "power2.out",
                         clearProps: "transform,opacity,clipPath",
                       });
+                  },
+                });
+              }
+            }
+            // Soft entrances for homepage section containers, with no layout shift.
+            if (pathname === "/") {
+              for (const el of scope.querySelectorAll(
+                "#main-content > section.band.wrap, #main-content > section.band > .wrap, #main-content > section.expertise-band > .wrap, #main-content > section.closing > .wrap",
+              )) {
+                if (seen.has(el)) continue;
+                seen.add(el);
+                ScrollTrigger.create({
+                  trigger: el,
+                  start: "top 92%",
+                  once: true,
+                  onEnter: () => {
+                    if (!alive) return;
+                    gsap.fromTo(
+                      el,
+                      { opacity: 0.72, y: 20 },
+                      { opacity: 1, y: 0, duration: 1.3, ease: "power2.out", clearProps: "transform,opacity" },
+                    );
                   },
                 });
               }

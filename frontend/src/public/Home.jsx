@@ -1,3 +1,5 @@
+import { orderedIndustries } from "../lib/industryOrder";
+import Relationships from "./Relationships";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
@@ -122,6 +124,16 @@ function HomeApproach() {
 }
 const expertise = [
   [
+    "Livestock & agribusiness consulting",
+    "Viable enterprise models and stronger value chains.",
+    "/consulting/livestock-agribusiness/",
+  ],
+  [
+    "Business strategy & management",
+    "Growth planning, operations and business development.",
+    "/consulting/business-strategy/",
+  ],
+  [
     "Farm inputs",
     "Feed, supplements and farm management products.",
     "/ventures/farm-inputs/",
@@ -135,16 +147,6 @@ const expertise = [
     "Handloom products",
     "Traditional textiles, producer groups and wider markets.",
     "/ventures/handloom/",
-  ],
-  [
-    "Business strategy & management",
-    "Growth planning, operations and business development.",
-    "/consulting/business-strategy/",
-  ],
-  [
-    "Livestock & agribusiness consulting",
-    "Viable enterprise models and stronger value chains.",
-    "/consulting/livestock-agribusiness/",
   ],
   [
     "Institutional development",
@@ -162,55 +164,34 @@ export default function Home() {
         description={s.seo_description}
         image="/images/seedlings-1200.webp"
       />
-      <section className="hero wrap">
-        <div className="hero-copy">
-          <Eyebrow>{s.tagline}</Eyebrow>
-          <h1 aria-label="Connecting resources, businesses and opportunities.">
-            {[
-              "Connecting",
-              "resources,",
-              "businesses and",
-              "opportunities.",
-            ].map((line, i) => (
-              <span className="hero-line" key={line}>
-                <span style={{ "--i": i }}>{line}</span>
-              </span>
-            ))}
+      <section className="hero hero-reference-v2" aria-label="SRI introduction">
+        <div className="hero-copy hero-reference-copy">
+          <h1 className="hero-reference-title">
+            <span>Building Better</span>
+            <span>Businesses.</span>
+            <span>Strengthening</span>
+            <span>Communities.</span>
           </h1>
-          <p className="hero-lead">{content.pages["/"].description}</p>
-          <div className="actions hero-actions">
-            <Action variant="solid" to="/ventures/">
-              Explore SRI Ventures
-            </Action>
-            <Action variant="outline" to="/consulting/">
-              Explore SRI Consulting
-            </Action>
+          <p className="hero-reference-lead">
+            Supporting farmers, producer institutions and rural enterprises with
+            practical solutions, market linkages and long-term growth strategies.
+          </p>
+          <div className="actions hero-reference-actions">
+            <a className="action solid" href="#home-expertise">Our Expertise <ArrowUpRight size={22} /></a>
+            <Link className="action outline" to="/contact/">Contact Us <ArrowUpRight size={22} /></Link>
           </div>
-          <a className="scroll-link" href="#two-verticals">
-            <ArrowDown size={15} /> Explore the company
-          </a>
         </div>
-        <figure className="hero-image">
-          <div className="hero-frame">
-            <div data-parallax>
-              <img
-                fetchPriority="high"
-                alt={content.photos.find((x) => x.key === "seedlings").alt}
-                src="/images/seedlings-1200.webp"
-                srcSet="/images/seedlings-640.webp 640w, /images/seedlings-1200.webp 1200w, /images/seedlings-1920.webp 1920w"
-                sizes="(max-width: 800px) 94vw, 50vw"
-                width="1600"
-                height="862"
-              />
-            </div>
-          </div>
-          <figcaption>
-            <span>Rice planting</span>
-            <span>Assam, India</span>
-          </figcaption>
+        <figure className={"hero-reference-art" + (s.hero_image ? " hero-custom-image" : "")}>
+          <img
+            src={s.hero_image || "/images/sri-hero-reference.webp"}
+            alt={s.hero_image ? (s.hero_image_alt || "SRI homepage hero photograph") : "Woman farmer carrying a basket of green crops in a sunny rural field"}
+            width="982"
+            height="941"
+            fetchPriority="high"
+          />
         </figure>
       </section>
-      <section id="two-verticals" className="wrap band">
+<section id="two-verticals" className="wrap band">
         <div className="intro-spread">
           <div>
             <Eyebrow>The company</Eyebrow>
@@ -257,7 +238,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="band expertise-band">
+      <section id="home-expertise" className="band expertise-band">
         <div className="wrap split">
           <div>
             <Eyebrow>Products & services</Eyebrow>
@@ -293,23 +274,48 @@ export default function Home() {
         >
           <Action to="/industries/">All industries</Action>
         </SectionTitle>
+
         <div className="industry-preview">
-          <Photo id={sector} caption fit="(max-width: 740px) 90vw, 48vw" />
+          <Photo
+            id={sector}
+            caption
+            fit="(max-width: 740px) 90vw, 48vw"
+          />
+
           <div className="industry-links">
-            {content.industries.map((i) => (
-              <Link
-                key={i.slug}
-                to={"/industries/" + i.slug + "/"}
-                onFocus={() => setSector(i.image || "dairy")}
-                onMouseEnter={() => setSector(i.image || "dairy")}
-              >
-                {i.title}
-                <ArrowUpRight size={16} />
-              </Link>
-            ))}
+            {[...content.industries]
+              .sort((a, b) => {
+                const order = [
+                  "poultry",
+                  "piggery",
+                  "goatery",
+                  "dairy",
+                  "agriculture-agribusiness",
+                ];
+
+                const aIndex = order.indexOf(a.slug);
+                const bIndex = order.indexOf(b.slug);
+
+                return (
+                  (aIndex < 0 ? order.length : aIndex) -
+                  (bIndex < 0 ? order.length : bIndex)
+                );
+              })
+              .map((i) => (
+                <Link
+                  key={i.slug}
+                  to={"/industries/" + i.slug + "/"}
+                  onFocus={() => setSector(i.image || "dairy")}
+                  onMouseEnter={() => setSector(i.image || "dairy")}
+                >
+                  {i.title}
+                  <ArrowUpRight size={16} />
+                </Link>
+              ))}
           </div>
         </div>
       </section>
+
       <section className="why-band band">
         <div className="wrap split">
           <div>
@@ -340,6 +346,7 @@ export default function Home() {
         <PublishedTiles kind="articles" home />
       </section>
       <Closing />
+      <Relationships />
     </>
   );
 }

@@ -1,4 +1,8 @@
+import "../styles/sri-company-industries-v21.css";
+import AboutPitchdeckSections from "./AboutPitchdeckSections";
+import { orderedIndustries } from "../lib/industryOrder";
 import React from "react";
+import '../styles/sri-values-v22.css';
 import { Link, useLocation, useParams } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import data from "@shared/content.json";
@@ -110,17 +114,26 @@ export function About() {
           </div>
         </div>
       </section>
-      <section className="wrap band split">
-        <h2 data-reveal>Our values.</h2>
-        <div className="ruled-list">
-          {data.values.map(([v, d]) => (
-            <div key={v}>
-              <h3>{v}</h3>
-              <p>{d}</p>
-            </div>
+      <section className="sri-values-v22 wrap band" aria-labelledby="sri-values-title">
+        <div className="sri-values-v22__header">
+          <span className="sri-values-v22__eyebrow">The principles behind our work</span>
+          <h2 id="sri-values-title" data-reveal>Our values.</h2>
+          <p>Six commitments that guide how we build enterprises, strengthen institutions and work with communities.</p>
+        </div>
+        <div className="sri-values-v22__grid">
+          {data.values.map(([v, d], index) => (
+            <article className="sri-values-v22__card" key={v}>
+              <span className="sri-values-v22__number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <h3>{v}</h3>
+                <p>{d}</p>
+              </div>
+            </article>
           ))}
         </div>
       </section>
+      {/* SRI_V21_ABOUT_COMPANY */}
+      <AboutPitchdeckSections />
       <Closing />
     </>
   );
@@ -390,20 +403,23 @@ export function Industries() {
   return (
     <>
       <Header path="/industries/" over="Sectors" />
-      <div className="wrap band split">
-        <Photo id="dairy" caption className="tall-photo" />
-        <div className="editorial-index">
-          {data.industries.map((i) => (
-            <Link key={i.slug} to={"/industries/" + i.slug + "/"}>
-              <div>
-                <h3>{i.title}</h3>
-                <p>{i.description}</p>
+      <section className="wrap band sri-v21-industries" aria-label="Browse industries served by SRI">
+        <div className="sri-v21-directory-intro">
+          <p>Explore the sectors in which SRI connects rural businesses, agricultural products, producer institutions and professional advisory services.</p>
+        </div>
+        <div className="sri-v21-directory-grid">
+          {orderedIndustries(data.industries).map((i, index) => (
+            <Link className="sri-v21-industry-card" key={i.slug} to={"/industries/" + i.slug + "/"}>
+              <div className="sri-v21-industry-card-head">
+                <span className="sri-v21-card-index">{String(index + 1).padStart(2, "0")}</span>
+                <ArrowUpRight size={21} aria-hidden="true" />
               </div>
-              <ArrowUpRight />
+              <h2>{i.title}</h2>
+              <p>{i.description}</p>
             </Link>
           ))}
         </div>
-      </div>
+      </section>
     </>
   );
 }
@@ -617,6 +633,14 @@ export function Information({ kind }) {
               If email is enabled, a reference is sent to the address you
               provide. Staff administration uses an essential session cookie.
               The introduction uses browser session storage.
+            </p>
+            <h2>Human verification</h2>
+            <p>
+              When Cloudflare Turnstile is enabled on the contact form,
+              Cloudflare processes verification information to help prevent
+              automated and abusive submissions. Review Cloudflare’s
+              <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer"> privacy policy</a>
+              for details about its processing.
             </p>
             {s.analytics_id && (
               <p>

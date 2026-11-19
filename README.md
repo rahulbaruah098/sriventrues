@@ -139,3 +139,60 @@ The browser suite starts a temporary Flask server and uses a disposable sri_brow
 | LICENSE-ASSETS.md | Photography and typography credits |
 
 If a request fails, check /api/health, the terminal and the MongoDB service. If the site reports that content is uninitialised, run init-db against the same database configured for the server.
+
+## Daily Development - Windows VS Code
+
+Run the website in two separate VS Code PowerShell terminals.
+Docker is not required.
+
+### Terminal 1 - Flask Backend
+
+```powershell
+cd D:\TechEase\sri-ventures-consulting\backend
+.\.venv\Scripts\Activate.ps1
+python -m flask --app run run --host 127.0.0.1 --port 5000 --no-reload
+```
+
+Backend URL: http://localhost:5000
+
+The --no-reload option avoids the Windows Werkzeug
+auto-reloader socket error (WinError 10038).
+
+### Terminal 2 - React + Vite Frontend
+
+```powershell
+cd D:\TechEase\sri-ventures-consulting\frontend
+npm run dev
+```
+
+Frontend URL: http://localhost:5173
+
+### MongoDB
+
+MongoDB runs as a Windows service.
+
+```powershell
+Get-Service MongoDB
+```
+
+If the service is stopped, start it from an
+elevated PowerShell terminal:
+
+```powershell
+Start-Service MongoDB
+```
+
+Default MongoDB connection:
+mongodb://127.0.0.1:27017
+
+Database: sri_website
+
+### Website URLs
+
+- Homepage: http://localhost:5173/
+- Admin Login: http://localhost:5173/admin/login
+- Know the Founder: http://localhost:5173/know-the-founder/
+- Backend Health: http://localhost:5000/api/health
+
+Keep both development terminals open.
+Press Ctrl+C in each terminal to stop its server.

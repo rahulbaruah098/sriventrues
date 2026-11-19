@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
@@ -21,6 +21,53 @@ function newId() {
     s.slice(20),
   ].join("-");
 }
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || "";
+
+function TurnstileField({ onToken, resetVersion }) {
+  const mount = useRef(null);
+  const widgetId = useRef(null);
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY || !mount.current) return;
+    let active = true;
+    const render = () => {
+      if (!active || !mount.current || !window.turnstile || widgetId.current !== null) return;
+      widgetId.current = window.turnstile.render(mount.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: (token) => active && onToken(token),
+        "expired-callback": () => active && onToken(""),
+        "error-callback": () => { if (active) onToken(""); },
+      });
+    };
+    const scriptId = "sri-cloudflare-turnstile-api";
+    let script = document.getElementById(scriptId);
+    if (!script) {
+      script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+    script.addEventListener("load", render);
+    if (window.turnstile) render();
+    return () => {
+      active = false;
+      script?.removeEventListener("load", render);
+      if (widgetId.current !== null && window.turnstile) {
+        try { window.turnstile.remove(widgetId.current); } catch (_) { /* already removed */ }
+      }
+      widgetId.current = null;
+    };
+  }, [onToken]);
+  useEffect(() => {
+    if (resetVersion > 0 && widgetId.current !== null && window.turnstile) {
+      window.turnstile.reset(widgetId.current);
+    }
+  }, [resetVersion]);
+  if (!TURNSTILE_SITE_KEY) return null;
+  return <div className="turnstile-field"><div ref={mount} /><p className="form-note">Security verification is required to submit this enquiry.</p></div>;
+}
+
 function EnquiryForm({ kind, params }) {
   const fields = content.forms[kind],
     reduced = useReducedMotion();
@@ -36,7 +83,9 @@ function EnquiryForm({ kind, params }) {
     );
   const [form, setForm] = useState(defaults),
     [consent, setConsent] = useState(false),
-    [busy, setBusy] = useState(false);
+    [busy, setBusy] = useState(false),
+    [turnstileToken, setTurnstileToken] = useState(""),
+    [turnstileReset, setTurnstileReset] = useState(0);
   const [error, setError] = useState(""),
     [reference, setReference] = useState("");
   const requestId = useRef(newId()),
@@ -47,6 +96,10 @@ function EnquiryForm({ kind, params }) {
     e.preventDefault();
     if (lock.current) return;
     setError("");
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      setError("Complete the human verification before submitting.");
+      return;
+    }
     setBusy(true);
     lock.current = true;
     try {
@@ -58,12 +111,15 @@ function EnquiryForm({ kind, params }) {
           request_id: requestId.current,
           consent,
           website: trap.current.value,
+          turnstile_token: turnstileToken,
         },
       });
       setReference(result.reference);
       requestAnimationFrame(() => success.current?.focus());
     } catch (err) {
       setError(err.message);
+      setTurnstileToken("");
+      setTurnstileReset((v) => v + 1);
     } finally {
       setBusy(false);
       lock.current = false;
@@ -86,6 +142,7 @@ function EnquiryForm({ kind, params }) {
             setReference("");
             setForm(defaults());
             setConsent(false);
+            setTurnstileToken("");
           }}
         >
           Start another enquiry
@@ -175,12 +232,13 @@ function EnquiryForm({ kind, params }) {
           </Link>
         </span>
       </label>
+      <TurnstileField onToken={setTurnstileToken} resetVersion={turnstileReset} />
       {error && (
         <p className="error" role="alert">
           {error}
         </p>
       )}
-      <button type="submit" className="button" disabled={busy}>
+      <button type="submit" className="button" disabled={busy || (Boolean(TURNSTILE_SITE_KEY) && !turnstileToken)}>
         {busy ? "Submitting…" : "Submit enquiry"}
         <ArrowRight size={17} />
       </button>
@@ -214,20 +272,18 @@ export default function Contact() {
           </div>
         </div>
         <div>
-          <nav className="journeys" aria-label="Enquiry type">
-            {Object.keys(content.forms).map((k) => (
-              <button
-                aria-current={k === kind ? "page" : undefined}
-                type="button"
-                key={k}
-                onClick={() => {
-                  if (k !== kind) setParams({ type: k });
-                }}
-              >
-                {labels[k]}
-              </button>
-            ))}
-          </nav>
+          <label className="enquiry-type-label" htmlFor="enquiry-type">
+            <span>What is your enquiry about? *</span>
+            <select
+              id="enquiry-type"
+              value={kind}
+              onChange={(e) => setParams({ type: e.target.value })}
+            >
+              {Object.keys(content.forms).map((k) => (
+                <option key={k} value={k}>{labels[k]}</option>
+              ))}
+            </select>
+          </label>
           <EnquiryForm key={params.toString()} kind={kind} params={params} />
         </div>
       </section>
