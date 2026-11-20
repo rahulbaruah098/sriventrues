@@ -1,3 +1,4 @@
+import SriAssistantVisibility from "./SriAssistantVisibility";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { ArrowUpRight, Menu, X, ChevronDown, ArrowUp, MapPin, Phone, Mail, MessageCircle, Send, Linkedin, Instagram, Facebook, Youtube, ExternalLink } from "lucide-react";
@@ -465,7 +466,7 @@ export default function PublicLayout() {
           <Outlet />
         </main>
         <Footer />
-        {!opening && <SriAssistant />}
+        {!opening && <SriAssistantVisibility><SriAssistant /></SriAssistantVisibility>}
         <ScrollMotion active={!opening} root={root} />      </div>
     </>
   );

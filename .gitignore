@@ -37,3 +37,4 @@ backend/private-career-resumes/
 *.p12
 *.pfx
 *.sqlite3
+*.key

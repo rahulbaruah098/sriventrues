@@ -1,3 +1,5 @@
+import "./styles/sri-assistant-v26.css";
+import './lib/favicon.js';
 import React, { lazy, Suspense, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import {
@@ -63,6 +65,9 @@ const CareerJobs = pick(careersAdmin,'CareerJobs'), CareerJobEditor=pick(careers
   CareerApplications=pick(careersAdmin,'CareerApplications'), CareerApplicant=pick(careersAdmin,'CareerApplicant'),
   CareerSMTP=pick(careersAdmin,'CareerSMTP'), CareerEmailHistory=pick(careersAdmin,'CareerEmailHistory'),
   CareerTemplates=pick(careersAdmin,'CareerTemplates');
+
+const faviconAdmin = () => import('./admin/FaviconManager');
+const FaviconManager = pick(faviconAdmin, 'FaviconManager');
 
 function RouteScroll() {
   const { pathname, hash } = useLocation(),
@@ -217,6 +222,7 @@ function App() {
                 <Route path="careers/templates" element={<CareerTemplates />} />
                 <Route path="careers/smtp" element={<CareerSMTP />} />
                 <Route path="careers/emails" element={<CareerEmailHistory />} />
+                <Route path="favicon" element={<FaviconManager />} />
                 <Route path="branding" element={<Settings branding />} />
                 <Route path="settings" element={<Settings />} />
                 <Route path="account" element={<Account />} />

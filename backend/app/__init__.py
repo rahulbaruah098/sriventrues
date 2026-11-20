@@ -21,6 +21,7 @@ from .routes.enquiries import enquiries
 from .routes.media import media, used
 from .routes.newsletter import newsletter
 from .routes.careers import careers
+from .routes.favicon import favicon
 from .routes.site import site
 from .routes.people_blogs import people_blogs
 from .routes.relationships import relationships
@@ -100,6 +101,7 @@ def create_app(config=None, database=None):
     for blueprint in (auth, content, editorial, enquiries, newsletter, media, site, assistant, people_blogs, relationships):
         app.register_blueprint(blueprint)
     app.register_blueprint(careers)
+    app.register_blueprint(favicon)
 
     @app.before_request
     def origin_check():

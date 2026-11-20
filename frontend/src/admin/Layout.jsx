@@ -16,6 +16,7 @@ import { AdminTitle, Feedback, Field, useSave } from "./controls";
 import { dateLabel } from "../lib/api";
 
 const navigation = [
+  ["Website Favicon", "favicon"],
   ["Job Postings", "careers/jobs"],
   ["Applications & Resumes", "careers/applications"],
   ["Recruitment Emails", "careers/emails"],

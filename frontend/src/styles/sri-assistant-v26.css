@@ -1,0 +1,32 @@
+/* V26: adds only launcher visibility and a short-lived greeting; leaves chat window styling intact. */
+.sri-v26-gate { display: contents; }
+.sri-v26-gate.sri-v26-hidden { display: none !important; }
+.sri-v26-greeting {
+  position: fixed;
+  z-index: 999;
+  right: 86px;
+  bottom: calc(42px + env(safe-area-inset-bottom, 0px));
+  width: max-content;
+  max-width: min(230px, calc(100vw - 116px));
+  padding: 10px 13px;
+  color: #102b50;
+  background: #fffdf7;
+  border: 1px solid rgba(16,43,80,.16);
+  border-radius: 15px 15px 4px 15px;
+  box-shadow: 0 8px 28px rgba(16,43,80,.12);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.35;
+  pointer-events: none;
+  animation: sriV26Greet .22s ease-out both;
+}
+@keyframes sriV26Greet { from {opacity:0;transform:translateY(7px)} to {opacity:1;transform:translateY(0)} }
+@media (max-width: 700px) {
+  .sri-v26-greeting { right: 76px; bottom: calc(30px + env(safe-area-inset-bottom, 0px)); max-width: 205px; font-size: 12px; }
+  /* Scope size changes to the launcher button, not controls inside the chat dialog. */
+  .sri-v26-gate [class*="launcher"] > button,
+  .sri-v26-gate button[class*="launcher"],
+  .sri-v26-gate button[class*="toggle"] { max-width: 52px; max-height: 52px; }
+}
+@media (prefers-reduced-motion: reduce) { .sri-v26-greeting { animation: none; } }
