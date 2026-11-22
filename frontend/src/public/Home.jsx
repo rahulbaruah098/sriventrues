@@ -217,7 +217,7 @@ export default function Home() {
             [
               "Ventures",
               "Connecting inputs, outputs and markets.",
-              "/images/sri-ventures-vertical.png",
+              "/images/sri-ventures-vertical.jpeg",
               "For buyers, suppliers and producers",
               "/ventures/",
             ],

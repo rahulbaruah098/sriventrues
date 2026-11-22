@@ -189,7 +189,7 @@ export function Vertical({ kind }) {
         <div className="overview-image sri-vertical-overview-image">
           <img
             className="sri-vertical-overview-photo"
-            src={venture ? "/images/sri-ventures-vertical.png" : "/images/sri-consulting-vertical.jpeg"}
+            src={venture ? "/images/sri-ventures-vertical.jpeg" : "/images/sri-consulting-vertical.jpeg"}
             alt={venture ? "SRI Ventures" : "SRI Consulting"}
             loading="lazy"
           />
