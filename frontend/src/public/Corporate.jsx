@@ -59,7 +59,7 @@ export function About() {
       <Header
         path="/about/"
         over="About SRI"
-        title="Building sustainable businesses. Strengthening institutions."
+        title="BUILDING SUSTAINABLE ENTERPRISES. STRENGTHENING INSTITUTIONS. TRANSFORMING RURAL ECONOMIES."
       />
       <section className="wrap band split">
         <Photo
@@ -99,7 +99,7 @@ export function About() {
             <h2>Our vision.</h2>
             <p className="lead">
               To become a leading enterprise development organisation promoting
-              sustainable innovation, professional excellence and inclusive
+              sustainable rural innovation, professional excellence and inclusive
               economic growth.
             </p>
           </div>
@@ -107,9 +107,9 @@ export function About() {
             <Eyebrow>Mission</Eyebrow>
             <h2>Our mission.</h2>
             <p className="lead">
-              To create value through quality products, professional consulting,
+              To create value through quality inputs, professional consulting services,
               innovative business solutions and sustainable enterprise
-              development.
+              development initiatives.
             </p>
           </div>
         </div>
@@ -186,8 +186,13 @@ export function Vertical({ kind }) {
         </div>
       </Header>
       <section className="wrap band">
-        <div className="overview-image">
-          <Photo id={venture ? "majuli" : "planting"} caption />
+        <div className="overview-image sri-vertical-overview-image">
+          <img
+            className="sri-vertical-overview-photo"
+            src={venture ? "/images/sri-ventures-vertical.png" : "/images/sri-consulting-vertical.jpeg"}
+            alt={venture ? "SRI Ventures" : "SRI Consulting"}
+            loading="lazy"
+          />
         </div>
         <div className="split band">
           <div>

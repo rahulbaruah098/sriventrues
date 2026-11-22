@@ -17,6 +17,7 @@ const groups = [
     "/about/",
     [
       ["Company overview", "/about/"],
+      ["Gallery", "/about/gallery/"],
       ["Know the Founder", "/know-the-founder/"],
       ["Meet the Team", "/meet-the-team/"],
       ["Our Approach", "/our-approach/"],

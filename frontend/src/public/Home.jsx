@@ -36,7 +36,7 @@ export function PublishedTiles({ kind, home = false }) {
                   {d.cover && <Media url={d.cover} alt={d.cover_alt} />}
                   <small>
                     {d.category}
-                    {kind === "articles" && " · " + dateLabel(d.published_at)}
+                    {kind === "articles" && " Â· " + dateLabel(d.published_at)}
                   </small>
                   <h3>{d.title}</h3>
                 </Link>
@@ -156,7 +156,10 @@ const expertise = [
 ];
 export default function Home() {
   const s = useSettings(),
-    [sector, setSector] = useState("majuli");
+    [sector, setSector] = useState("agriculture-agribusiness");
+  const industryImages = useData("public/industry-images");
+  const industrySelection = content.industries.find((item) => item.slug === sector) || content.industries[0];
+  const chosenIndustryImage = (industryImages.data?.items || []).find((item) => item.slug === sector);
   return (
     <>
       <Seo
@@ -214,20 +217,20 @@ export default function Home() {
             [
               "Ventures",
               "Connecting inputs, outputs and markets.",
-              "majuli",
+              "/images/sri-ventures-vertical.png",
               "For buyers, suppliers and producers",
               "/ventures/",
             ],
             [
               "Consulting",
               "Building businesses. Strengthening institutions.",
-              "planting",
+              "/images/sri-consulting-vertical.jpeg",
               "For enterprises, institutions and partners",
               "/consulting/",
             ],
           ].map(([name, line, img, over, url]) => (
             <article key={name} className={"vertical " + name.toLowerCase()}>
-              <Photo id={img} fit="(max-width: 740px) 90vw, 48vw" />
+              <div className="photo vertical-custom-photo"><div className="image-window"><img src={img} alt={`SRI ${name}`} loading="lazy" onError={(event) => { event.currentTarget.src = name === "Ventures" ? "/images/majuli-1200.webp" : "/images/planting-1200.webp"; event.currentTarget.onerror = null; }} /></div></div>
               <div>
                 <p>{over}</p>
                 <h3>SRI {name}</h3>
@@ -247,12 +250,27 @@ export default function Home() {
               <br />
               expertise.
             </h2>
-            <Photo
-              id="weaving"
-              className="expert-photo"
-              fit="(max-width: 740px) 90vw, 32vw"
-              caption
-            />
+            <figure className="photo expert-photo expert-static-photo">
+              <div className="image-window">
+                <img
+                  src="/images/sri-expertise.jpg"
+                  alt="SRI expertise in rural enterprise and agribusiness"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(event) => {
+                    const image = event.currentTarget;
+                    const formats = [".jpg", ".jpeg", ".png", ".webp"];
+                    const index = formats.findIndex((ext) => image.src.split("?")[0].toLowerCase().endsWith("/sri-expertise" + ext));
+                    if (index >= 0 && index < formats.length - 1) {
+                      image.src = "/images/sri-expertise" + formats[index + 1];
+                    } else {
+                      image.onerror = null;
+                      image.src = "/images/weaving-1200.webp";
+                    }
+                  }}
+                />
+              </div>
+            </figure>
           </div>
           <div className="editorial-index">
             {expertise.map(([title, desc, to]) => (
@@ -277,8 +295,10 @@ export default function Home() {
 
         <div className="industry-preview">
           <Photo
-            id={sector}
+            id={industrySelection.image || "dairy"}
             caption
+            overrideUrl={chosenIndustryImage?.image || ""}
+            overrideAlt={chosenIndustryImage?.alt || industrySelection.title}
             fit="(max-width: 740px) 90vw, 48vw"
           />
 
@@ -305,8 +325,8 @@ export default function Home() {
                 <Link
                   key={i.slug}
                   to={"/industries/" + i.slug + "/"}
-                  onFocus={() => setSector(i.image || "dairy")}
-                  onMouseEnter={() => setSector(i.image || "dairy")}
+                  onFocus={() => setSector(i.slug)}
+                  onMouseEnter={() => setSector(i.slug)}
                 >
                   {i.title}
                   <ArrowUpRight size={16} />

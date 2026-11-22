@@ -21,6 +21,9 @@ const pick = (loader, name) =>
   lazy(() => loader().then((m) => ({ default: m[name] })));
 const corporate = () => import("./public/Corporate");
 const Home = lazy(() => import("./public/Home"));
+const Gallery = lazy(() => import("./public/Gallery"));
+const GalleryAdmin = lazy(() => import("./admin/GalleryAdmin"));
+const IndustryImagesAdmin = lazy(() => import("./admin/IndustryImagesAdmin"));
 const About = pick(corporate, "About"),
   Vertical = pick(corporate, "Vertical"),
   Service = pick(corporate, "Service"),
@@ -126,6 +129,7 @@ function App() {
                   <Route path={path + '/:slug'} element={<DirectoryDetail kind={kind} />}/>
                 </React.Fragment>)}
                 <Route path="about" element={<About />} />
+                <Route path="about/gallery" element={<Gallery />} />
                 <Route path="know-the-founder" element={<Founder />} />
                 <Route
                   path="about/know-the-founder"
@@ -188,6 +192,8 @@ function App() {
               <Route path="admin/login" element={<Login />} />
               <Route path="admin" element={<AdminLayout />}>
                 <Route index element={<Dashboard />} />
+                <Route path="gallery" element={<GalleryAdmin />} />
+                <Route path="industry-images" element={<IndustryImagesAdmin />} />
                 {['clients', 'partners', 'testimonials'].map(kind => <React.Fragment key={kind}>
                   <Route path={kind} element={<RelationshipsList kind={kind} />}/>
                   <Route path={kind + '/:id'} element={<RelationshipsEditor kind={kind} />}/>

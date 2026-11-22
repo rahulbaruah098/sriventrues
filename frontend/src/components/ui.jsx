@@ -124,6 +124,8 @@ export function Photo({
   caption = false,
   fit = "100vw",
   className = "",
+  overrideUrl = "",
+  overrideAlt = "",
 }) {
   const p = content.photos.find((v) => v.key === id);
   if (!p) return null;
@@ -131,19 +133,19 @@ export function Photo({
     <figure className={"photo " + className}>
       <div className="image-window" data-mask>
         <img
-          src={"/images/" + id + "-" + (p.widths?.[1] || 1200) + ".webp"}
-          srcSet={(p.widths || [640, 1200, 1920])
+          src={overrideUrl || "/images/" + id + "-" + (p.widths?.[1] || 1200) + ".webp"}
+          srcSet={overrideUrl ? undefined : (p.widths || [640, 1200, 1920])
             .map((w) => "/images/" + id + "-" + w + ".webp " + w + "w")
             .join(", ")}
           sizes={fit}
           width="1200"
           height="800"
-          alt={p.alt}
+          alt={overrideUrl ? (overrideAlt || p.alt) : p.alt}
           loading={priority ? "eager" : "lazy"}
           fetchPriority={priority ? "high" : "auto"}
         />
       </div>
-      {caption && (
+      {caption && !overrideUrl && (
         <figcaption>
           <span>{p.location}</span>
           <Link to="/credits/">

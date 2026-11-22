@@ -25,6 +25,8 @@ from .routes.favicon import favicon
 from .routes.site import site
 from .routes.people_blogs import people_blogs
 from .routes.relationships import relationships
+from .routes.gallery import gallery
+from .routes.industry_images import industry_images
 from .seed import initialise
 
 
@@ -98,7 +100,7 @@ def create_app(config=None, database=None):
         )
         database = client[os.getenv("MONGODB_DB") or "sri_website"]
     app.extensions["sri_db"] = database
-    for blueprint in (auth, content, editorial, enquiries, newsletter, media, site, assistant, people_blogs, relationships):
+    for blueprint in (auth, content, editorial, enquiries, newsletter, media, site, assistant, people_blogs, relationships, gallery, industry_images):
         app.register_blueprint(blueprint)
     app.register_blueprint(careers)
     app.register_blueprint(favicon)

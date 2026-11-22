@@ -168,6 +168,8 @@ def used(url, *, published_only=True):
         if published_only:
             query["status"] = "published"
         queries.append((coll, query))
+    queries.append(("gallery_images", {"image": url, "status": "published"} if published_only else {"image": url}))
+    queries.append(("homepage_industry_images", {"image": url}))
     return any(db()[coll].find_one(query, {"_id": 1}) for coll, query in queries)
 
 

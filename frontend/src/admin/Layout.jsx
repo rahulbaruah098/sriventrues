@@ -26,6 +26,8 @@ const navigation = [
   ["Our Partners", "partners"],
   ["Testimonials", "testimonials"],
   ["Dashboard", ""],
+  ["Gallery", "gallery"],
+  ["Industries Images", "industry-images"],
   ["Insights & Articles", "articles"],
   ["Blogs", "blogs"],
   ["Know Our Consultants", "consultants"],
